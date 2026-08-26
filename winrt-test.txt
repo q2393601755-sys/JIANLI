@@ -1,0 +1,2 @@
+﻿WinRT MediaTranscoder: AVAILABLE
+WinRT MediaEncodingProfile: AVAILABLE

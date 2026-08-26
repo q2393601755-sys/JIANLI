@@ -1,0 +1,1 @@
+﻿Found URL: https://registry.npmmirror.com/ffmpeg-static/-/ffmpeg-static-5.2.0.tgz

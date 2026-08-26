@@ -1,0 +1,4 @@
+﻿System.WindowsRuntimeSystemExtensions
+System.Runtime.InteropServices.WindowsRuntime.WindowsRuntimeBufferExtensions
+System.IO.WindowsRuntimeStorageExtensions
+System.IO.WindowsRuntimeStreamExtensions

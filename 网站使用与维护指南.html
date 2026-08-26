@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>章程个人作品集网站 - 使用与维护指南</title>
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg2: #121212;
+    --bg3: #1a1a1a;
+    --ink: #ffffff;
+    --muted: #9ca3af;
+    --muted-dark: #6b7280;
+    --accent: #3b82f6;
+    --accent-bright: #60a5fa;
+    --rule: #2a2a2a;
+    --code-bg: #0f0f0f;
+    --warn: #f59e0b;
+    --success: #10b981;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", sans-serif;
+    line-height: 1.8;
+    font-size: 15px;
+  }
+  .container { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+  
+  /* Cover */
+  .cover {
+    text-align: center;
+    padding: 60px 0 40px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 40px;
+  }
+  .cover h1 { font-size: 28px; font-weight: 300; letter-spacing: 0.05em; margin-bottom: 12px; }
+  .cover .subtitle { color: var(--accent); font-size: 14px; letter-spacing: 0.1em; }
+  .cover .meta { color: var(--muted-dark); font-size: 13px; margin-top: 16px; }
+  
+  /* Headings */
+  h2 {
+    font-size: 22px; font-weight: 600; margin: 48px 0 20px;
+    padding-bottom: 10px; border-bottom: 1px solid var(--rule);
+    color: var(--ink);
+  }
+  h2 .num { color: var(--accent); margin-right: 8px; }
+  h3 { font-size: 17px; font-weight: 600; margin: 32px 0 12px; color: var(--accent-bright); }
+  h4 { font-size: 15px; font-weight: 600; margin: 24px 0 10px; color: var(--ink); }
+  
+  /* Text */
+  p { margin-bottom: 14px; color: var(--muted); }
+  p strong { color: var(--ink); }
+  ul, ol { margin: 12px 0 20px 20px; color: var(--muted); }
+  li { margin-bottom: 6px; }
+  li strong { color: var(--ink); }
+  
+  /* Code */
+  pre {
+    background: var(--code-bg);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    padding: 16px 20px;
+    overflow-x: auto;
+    margin: 16px 0;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  code {
+    font-family: "Fira Code", "Cascadia Code", Consolas, monospace;
+    color: var(--accent-bright);
+  }
+  pre code { color: var(--muted); }
+  .code-comment { color: var(--muted-dark); }
+  .code-key { color: var(--accent-bright); }
+  .code-string { color: var(--success); }
+  .code-tag { color: var(--warn); }
+  
+  /* Callout */
+  .callout {
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--warn);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin: 16px 0;
+  }
+  .callout-title { color: var(--warn); font-weight: 600; font-size: 14px; margin-bottom: 8px; }
+  .callout p { margin-bottom: 8px; }
+  
+  .callout.success { border-left-color: var(--success); }
+  .callout.success .callout-title { color: var(--success); }
+  
+  .callout.info { border-left-color: var(--accent); }
+  .callout.info .callout-title { color: var(--accent); }
+  
+  /* Table */
+  .table-wrap { overflow-x: auto; margin: 16px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; padding: 10px 14px; border-bottom: 2px solid var(--rule); color: var(--ink); font-weight: 600; }
+  td { padding: 10px 14px; border-bottom: 1px solid var(--rule); color: var(--muted); }
+  td strong { color: var(--accent-bright); }
+  
+  /* Step */
+  .step {
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin: 16px 0;
+  }
+  .step-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--accent); color: var(--bg);
+    font-size: 14px; font-weight: 700; margin-right: 10px;
+  }
+  .step-title { font-size: 16px; font-weight: 600; color: var(--ink); }
+  
+  /* Prompt box */
+  .prompt-box {
+    background: var(--bg2);
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin: 16px 0;
+  }
+  .prompt-box h4 { color: var(--accent); margin-top: 0; }
+  
+  /* Divider */
+  .divider { height: 1px; background: var(--rule); margin: 40px 0; }
+  
+  /* File tree */
+  .file-tree {
+    background: var(--code-bg);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 16px 20px;
+    font-family: "Fira Code", Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--muted);
+    margin: 16px 0;
+    overflow-x: auto;
+  }
+  .file-tree .dir { color: var(--accent-bright); }
+  .file-tree .file { color: var(--muted); }
+  .file-tree .highlight { color: var(--warn); }
+  .file-tree .desc { color: var(--muted-dark); font-style: italic; }
+  
+  @media (max-width: 600px) {
+    .container { padding: 20px 16px 60px; }
+    pre { font-size: 12px; padding: 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Cover -->
+<div class="cover">
+  <h1>章程 CHENG ZHANG - 个人作品集网站</h1>
+  <p class="subtitle">使用与维护指南</p>
+  <p class="meta">最后更新：2026年8月13日 | 技术栈：Next.js + React + Tailwind CSS + Framer Motion</p>
+</div>
+
+<!-- ==================== Part 1: USB Deployment ==================== -->
+<h2><span class="num">一</span>U盘使用指南</h2>
+
+<p>本节说明如何将网站保存到U盘，并在<strong>没有网络、没有安装任何开发软件的电脑</strong>上打开使用。</p>
+
+<h3>1.1 你需要保存什么</h3>
+
+<div class="callout warn">
+  <div class="callout-title">重要：保存两样东西</div>
+  <p><strong>1. out 文件夹</strong> — 这是成品网站，给别人看的。双击里面的「启动网站.bat」就能打开。</p>
+  <p><strong>2. 整个「简历网址」文件夹</strong> — 这是源代码，以后想改网站内容时需要。包含所有代码、数据、图片、视频。</p>
+  <p>两个都存到U盘。如果U盘空间不够，<strong>至少保存 out 文件夹</strong>。</p>
+</div>
+
+<h3>1.2 如何构建网站（生成 out 文件夹）</h3>
+
+<p>如果你还没有 out 文件夹，或者你修改了网站内容后需要重新生成：</p>
+
+<div class="step">
+  <span class="step-num">1</span><span class="step-title">双击「构建网站.bat」</span>
+  <p style="margin-top:12px">在「简历网址」文件夹里找到 <code>构建网站.bat</code>，双击运行。会弹出一个黑色窗口，自动构建网站。</p>
+</div>
+
+<div class="step">
+  <span class="step-num">2</span><span class="step-title">等待构建完成</span>
+  <p style="margin-top:12px">大约需要1-2分钟。完成后会自动弹出 out 文件夹。</p>
+</div>
+
+<div class="step">
+  <span class="step-num">3</span><span class="step-title">复制 out 文件夹到U盘</span>
+  <p style="margin-top:12px">把整个 out 文件夹拖到U盘里。<strong>out 文件夹大小约 442MB</strong>（4个视频占大部分空间）。</p>
+</div>
+
+<h3>1.3 在其他电脑上打开网站</h3>
+
+<div class="step">
+  <span class="step-num">1</span><span class="step-title">插入U盘</span>
+  <p style="margin-top:12px">打开U盘里的 out 文件夹。</p>
+</div>
+
+<div class="step">
+  <span class="step-num">2</span><span class="step-title">双击「启动网站.bat」</span>
+  <p style="margin-top:12px">浏览器会自动打开网站。<strong>不需要联网，不需要安装任何软件。</strong></p>
+</div>
+
+<div class="callout info">
+  <div class="callout-title">提示</div>
+  <p>推荐使用 Chrome 或 Edge 浏览器。如果双击 bat 文件后浏览器没有自动打开，可以手动双击 out 文件夹里的 <code>index.html</code>。</p>
+</div>
+
+<h3>1.4 out 文件夹内容说明</h3>
+
+<div class="file-tree">
+<span class="dir">out/</span>
+├── <span class="highlight">启动网站.bat</span>          <span class="desc">← 双击此文件打开网站</span>
+├── <span class="highlight">使用说明.txt</span>          <span class="desc">← 简要使用说明</span>
+├── index.html              <span class="desc">← 首页（也可以直接双击打开）</span>
+├── about/index.html        <span class="desc">← 关于我页面</span>
+├── contact/index.html      <span class="desc">← 联系页面</span>
+├── experience/index.html   <span class="desc">← 工作经历页面</span>
+├── projects/index.html     <span class="desc">← 精选作品列表</span>
+├── projects/echo/index.html<span class="desc">← 回音Echo项目详情</span>
+├── ...                     <span class="desc">← 其他项目详情页</span>
+├── <span class="dir">images/</span>                <span class="desc">← 所有图片</span>
+│   ├── about/portrait.png  <span class="desc">← AI头像</span>
+│   ├── hero/echo-still.png <span class="desc">← 首页背景图</span>
+│   ├── projects/           <span class="desc">← 项目封面图</span>
+│   └── qr-code/wechat.jpg  <span class="desc">← 微信二维码</span>
+├── <span class="dir">videos/</span>                <span class="desc">← 所有视频文件</span>
+│   ├── echo.mp4            <span class="desc">← 回音Echo视频</span>
+│   ├── changrongyuan.mp4   <span class="desc">← 昌荣苑宣传片</span>
+│   ├── liqiao.mp4          <span class="desc">← 利桥样板房</span>
+│   └── xihu-vlog.mp4       <span class="desc">← 西湖Vlog</span>
+├── <span class="dir">audio/</span>                 <span class="desc">← 背景音乐</span>
+│   └── bgm.mp3             <span class="desc">← 背景音乐文件</span>
+├── <span class="dir">resume/</span>                <span class="desc">← 简历文件</span>
+│   └── cheng-zhang-resume.pdf
+└── <span class="dir">_next/</span>                 <span class="desc">← 网站程序文件（勿动）</span>
+</div>
+
+<!-- ==================== Part 2: Content Modification ==================== -->
+<h2><span class="num">二</span>网站内容修改指南</h2>
+
+<p>本节说明如何修改网站内容。所有内容都存在<strong>数据文件</strong>中，修改这些文件即可更新网站。</p>
+
+<h3>2.1 项目文件结构</h3>
+
+<div class="file-tree">
+<span class="dir">简历网址/</span>
+├── <span class="highlight">构建网站.bat</span>           <span class="desc">← 双击构建网站</span>
+├── <span class="highlight">打开预览.bat</span>           <span class="desc">← 双击预览网站</span>
+├── <span class="dir">lib/data/</span>              <span class="desc">← 【核心】所有内容数据</span>
+│   ├── <span class="highlight">projects.ts</span>       <span class="desc">← 项目/作品数据</span>
+│   ├── <span class="highlight">experience.ts</span>     <span class="desc">← 工作经历数据</span>
+│   ├── <span class="highlight">timeline.ts</span>       <span class="desc">← About页面成长时间线</span>
+│   ├── <span class="highlight">growth-log.ts</span>     <span class="desc">← AI成长日志数据</span>
+│   ├── <span class="highlight">site-config.ts</span>    <span class="desc">← 个人信息（邮箱、微信等）</span>
+│   ├── <span class="highlight">abilities.ts</span>      <span class="desc">← 核心能力数据</span>
+│   └── <span class="highlight">workflow.ts</span>       <span class="desc">← AI工作流数据</span>
+├── <span class="dir">lib/i18n/</span>
+│   └── <span class="highlight">translations.ts</span>   <span class="desc">← 所有界面文字翻译</span>
+├── <span class="dir">public/</span>                <span class="desc">← 所有媒体文件</span>
+│   ├── images/             <span class="desc">← 图片放这里</span>
+│   ├── videos/             <span class="desc">← 视频放这里</span>
+│   ├── audio/              <span class="desc">← 音乐放这里</span>
+│   └── resume/             <span class="desc">← 简历PDF放这里</span>
+├── <span class="dir">app/</span>                   <span class="desc">← 页面文件（一般不需要改）</span>
+├── <span class="dir">components/</span>            <span class="desc">← 组件文件（一般不需要改）</span>
+└── <span class="dir">scripts/</span>
+    └── post-build.js       <span class="desc">← 构建后处理脚本（勿动）</span>
+</div>
+
+<h3>2.2 如何添加新作品</h3>
+
+<p>添加新作品只需要两步：<strong>1）把封面图片放到 public/images/projects/ 目录；2）在 projects.ts 里添加一条数据。</strong></p>
+
+<h4>第1步：放封面图片</h4>
+<p>把项目封面图放到 <code>public/images/projects/</code> 目录，命名建议用英文，例如 <code>my-new-project-cover.png</code>。</p>
+
+<h4>第2步：在 projects.ts 添加数据</h4>
+<p>打开 <code>lib/data/projects.ts</code>，在 <code>projects</code> 数组里添加一个新对象。以下是完整模板：</p>
+
+<pre><code>{
+  id: <span class="code-string">"my-new-project"</span>,           <span class="code-comment">// 唯一ID，用英文</span>
+  slug: <span class="code-string">"my-new-project"</span>,         <span class="code-comment">// 网址路径，和id一样</span>
+  title: {
+    zh: <span class="code-string">"我的新项目"</span>,
+    en: <span class="code-string">"My New Project"</span>,
+  },
+  subtitle: {
+    zh: <span class="code-string">"项目副标题"</span>,
+    en: <span class="code-string">"Project Subtitle"</span>,
+  },
+  summary: {
+    zh: <span class="code-string">"一句话简介。"</span>,
+    en: <span class="code-string">"One-line summary."</span>,
+  },
+  description: {
+    zh: <span class="code-string">"详细描述，可以写多段。"</span>,
+    en: <span class="code-string">"Detailed description."</span>,
+  },
+  year: <span class="code-key">2026</span>,                       <span class="code-comment">// 年份</span>
+  category: {
+    zh: <span class="code-string">"AI视频创作"</span>,
+    en: <span class="code-string">"AI Video Creation"</span>,
+  },
+  tags: [<span class="code-string">"AI视频"</span>, <span class="code-string">"AI"</span>],         <span class="code-comment">// 标签</span>
+  tools: [<span class="code-string">"ChatGPT"</span>, <span class="code-string">"Trae"</span>],       <span class="code-comment">// 使用的工具</span>
+  cover: {                            <span class="code-comment">// 封面图片</span>
+    type: <span class="code-string">"image"</span>,
+    url: <span class="code-string">"/images/projects/my-new-project-cover.png"</span>,
+    alt: {
+      zh: <span class="code-string">"项目封面"</span>,
+      en: <span class="code-string">"Project Cover"</span>,
+    },
+  },
+  videoUrl: <span class="code-string">"https://v.douyin.com/xxx/"</span>,  <span class="code-comment">// 抖音链接（可选）</span>
+  videoFile: <span class="code-string">"/videos/my-new-project.mp4"</span>,  <span class="code-comment">// 本地视频（可选）</span>
+  featured: <span class="code-key">false</span>,                    <span class="code-comment">// true=首页精选展示，false=仅作品列表</span>
+  createdAt: <span class="code-string">"2026-08-13"</span>,            <span class="code-comment">// 创建日期</span>
+  process: [                          <span class="code-comment">// 创作流程（可选）</span>
+    {
+      step: <span class="code-key">1</span>,
+      title: { zh: <span class="code-string">"故事概念"</span>, en: <span class="code-string">"Story Concept"</span> },
+      description: { zh: <span class="code-string">"描述"</span>, en: <span class="code-string">"Description"</span> },
+      tools: [<span class="code-string">"ChatGPT"</span>],
+    },
+  ],
+  challenges: [                      <span class="code-comment">// 挑战与解决方案（可选）</span>
+    {
+      title: { zh: <span class="code-string">"挑战标题"</span>, en: <span class="code-string">"Challenge"</span> },
+      problem: { zh: <span class="code-string">"问题描述"</span>, en: <span class="code-string">"Problem"</span> },
+      solution: { zh: <span class="code-string">"解决方案"</span>, en: <span class="code-string">"Solution"</span> },
+    },
+  ],
+}</code></pre>
+
+<div class="callout info">
+  <div class="callout-title">字段说明</div>
+  <p><strong>featured</strong>: 设为 <code>true</code> 会在首页精选作品区域展示，<code>false</code> 只在作品列表页展示。</p>
+  <p><strong>videoUrl</strong>: 抖音等外部视频链接，会在详情页显示"观看视频"按钮。</p>
+  <p><strong>videoFile</strong>: 本地视频文件路径，会在详情页显示视频播放器。把视频文件放到 <code>public/videos/</code> 目录。</p>
+  <p><strong>process / challenges / gallery</strong>: 都是可选字段，不需要的可以不写。</p>
+</div>
+
+<h3>2.3 如何修改个人信息</h3>
+
+<p>打开 <code>lib/data/site-config.ts</code>：</p>
+
+<pre><code><span class="code-key">email</span>: <span class="code-string">"2393601755@qq.com"</span>,        <span class="code-comment">// 邮箱</span>
+<span class="code-key">wechatId</span>: <span class="code-string">"q2393601755"</span>,           <span class="code-comment">// 微信号</span>
+<span class="code-key">name</span>: { zh: <span class="code-string">"章程"</span>, en: <span class="code-string">"CHENG ZHANG"</span> },
+<span class="code-key">title</span>: { zh: <span class="code-string">"AI视觉创作者"</span>, en: <span class="code-string">"AI Visual Creator"</span> },
+<span class="code-key">bio</span>: { zh: <span class="code-string">"个人简介中文"</span>, en: <span class="code-string">"English bio"</span> },</code></pre>
+
+<h3>2.4 如何修改工作经历</h3>
+
+<p>打开 <code>lib/data/experience.ts</code>，每段经历是一个对象：</p>
+
+<pre><code>{
+  id: <span class="code-string">"company-name"</span>,
+  company: { zh: <span class="code-string">"公司名"</span>, en: <span class="code-string">"Company Name"</span> },
+  role: { zh: <span class="code-string">"职位"</span>, en: <span class="code-string">"Role"</span> },
+  period: { zh: <span class="code-string">"2025.04 — 至今"</span>, en: <span class="code-string">"Apr 2025 — Present"</span> },
+  location: { zh: <span class="code-string">"城市"</span>, en: <span class="code-string">"City"</span> },
+  current: <span class="code-key">true</span>,                       <span class="code-comment">// true=显示"至今"标签</span>
+  description: { zh: <span class="code-string">"描述"</span>, en: <span class="code-string">"Description"</span> },
+  achievements: [
+    { zh: <span class="code-string">"成就1"</span>, en: <span class="code-string">"Achievement 1"</span> },
+    { zh: <span class="code-string">"成就2"</span>, en: <span class="code-string">"Achievement 2"</span> },
+  ],
+}</code></pre>
+
+<h3>2.5 如何添加AI成长日志</h3>
+
+<p>打开 <code>lib/data/growth-log.ts</code>，添加新条目：</p>
+
+<pre><code>{
+  id: <span class="code-string">"unique-id"</span>,
+  date: <span class="code-string">"2026.09"</span>,                    <span class="code-comment">// 年月</span>
+  title: { zh: <span class="code-string">"标题"</span>, en: <span class="code-string">"Title"</span> },
+  content: { zh: <span class="code-string">"内容描述"</span>, en: <span class="code-string">"Content"</span> },
+  insights: { zh: <span class="code-string">"关键洞察"</span>, en: <span class="code-string">"Insight"</span> },
+  tags: [<span class="code-string">"标签1"</span>, <span class="code-string">"标签2"</span>],
+}</code></pre>
+
+<h3>2.6 如何替换图片/视频/音乐</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>要替换什么</th><th>文件位置</th><th>文件名</th></tr>
+<tr><td>首页背景图</td><td><code>public/images/hero/</code></td><td><code>echo-still.png</code></td></tr>
+<tr><td>AI头像</td><td><code>public/images/about/</code></td><td><code>portrait.png</code></td></tr>
+<tr><td>微信二维码</td><td><code>public/images/qr-code/</code></td><td><code>wechat.jpg</code></td></tr>
+<tr><td>项目封面</td><td><code>public/images/projects/</code></td><td>见 projects.ts 中的 url</td></tr>
+<tr><td>视频文件</td><td><code>public/videos/</code></td><td>见 projects.ts 中的 videoFile</td></tr>
+<tr><td>背景音乐</td><td><code>public/audio/</code></td><td><code>bgm.mp3</code></td></tr>
+<tr><td>简历PDF</td><td><code>public/resume/</code></td><td><code>cheng-zhang-resume.pdf</code></td></tr>
+</table>
+</div>
+
+<p><strong>替换方法</strong>：把新文件重命名为上表中的文件名，覆盖原文件即可。不需要修改任何代码。</p>
+
+<h3>2.7 如何修改界面文字</h3>
+
+<p>所有按钮、标题、描述等界面文字都在 <code>lib/i18n/translations.ts</code> 里。格式为：</p>
+
+<pre><code><span class="code-string">"key.name"</span>: { zh: <span class="code-string">"中文文字"</span>, en: <span class="code-string">"English text"</span> },</code></pre>
+
+<h3>2.8 修改后的流程</h3>
+
+<div class="step">
+  <span class="step-num">1</span><span class="step-title">双击「打开预览.bat」查看效果</span>
+  <p style="margin-top:12px">浏览器自动打开，确认修改是否正确。</p>
+</div>
+<div class="step">
+  <span class="step-num">2</span><span class="step-title">双击「构建网站.bat」重新构建</span>
+  <p style="margin-top:12px">会重新生成 out 文件夹，包含你所有的修改。</p>
+</div>
+<div class="step">
+  <span class="step-num">3</span><span class="step-title">复制新的 out 文件夹到U盘</span>
+  <p style="margin-top:12px">替换U盘里旧的 out 文件夹。</p>
+</div>
+
+<!-- ==================== Part 3: AI Agent Handoff ==================== -->
+<h2><span class="num">三</span>如何让新的AI Agent帮你修改网站</h2>
+
+<p>如果你以后换了一台电脑，或者没有了当前的聊天记录，你可以把这份指南和项目文件夹给一个新的AI Agent（如 Trae、ChatGPT、Claude 等），让它帮你修改网站。</p>
+
+<h3>3.1 需要准备什么</h3>
+
+<ol>
+<li><strong>整个「简历网址」文件夹</strong> — 包含所有源代码和数据</li>
+<li><strong>这份指南文档</strong> — 让AI Agent了解项目结构</li>
+<li><strong>你的修改需求</strong> — 具体想改什么内容</li>
+</ol>
+
+<h3>3.2 前置条件：安装 Node.js</h3>
+
+<p>新电脑需要安装 Node.js（免费）才能运行和构建网站：</p>
+<ol>
+<li>访问 <code>https://nodejs.org</code></li>
+<li>下载 LTS 版本（长期支持版）</li>
+<li>安装时一路"下一步"即可，默认配置不用改</li>
+<li>安装完成后重启电脑</li>
+</ol>
+
+<h3>3.3 给AI Agent的提示词模板</h3>
+
+<p>把以下内容复制给新的AI Agent，替换方括号里的内容：</p>
+
+<div class="prompt-box">
+<h4>复制以下内容给AI Agent：</h4>
+<pre style="background:var(--code-bg);border:1px solid var(--rule);padding:16px;font-size:13px;color:var(--muted);">我是一个编程小白，有一个用 Next.js + React + Tailwind CSS + Framer Motion 
+构建的个人作品集网站。网站文件夹路径是：【填写你的文件夹路径，例如 H:\简历网址】
+
+请帮我修改网站内容。我的需求是：
+【在这里写你的需求，例如：
+1. 添加一个新项目，项目名称是XXX，内容是XXX
+2. 修改工作经历，XXX公司的时间改为XXX
+3. 替换首页背景图
+4. 修改邮箱地址为XXX】
+
+网站的数据结构说明：
+- 项目数据在 lib/data/projects.ts，每个项目是一个对象，包含 title、subtitle、
+  summary、description、year、category、tags、tools、cover、videoUrl、videoFile、
+  featured、process、challenges 等字段。所有文字都是 { zh: "中文", en: "English" } 
+  双语格式。
+- 工作经历在 lib/data/experience.ts
+- 个人信息在 lib/data/site-config.ts
+- 成长日志在 lib/data/growth-log.ts
+- 界面文字在 lib/i18n/translations.ts
+- 图片放在 public/images/，视频放在 public/videos/，音乐放在 public/audio/
+
+修改完成后，请运行 npm run build 构建网站，生成的 out 文件夹可以复制到U盘使用。
+
+请先读取 lib/data/projects.ts 了解现有数据格式，然后再进行修改。</pre>
+</div>
+
+<h3>3.4 关键文件速查表（给AI Agent看）</h3>
+
+<div class="table-wrap">
+<table>
+<tr><th>文件路径</th><th>作用</th><th>什么时候需要改</th></tr>
+<tr><td><code>lib/data/projects.ts</code></td><td>项目/作品数据</td><td>添加新作品、修改项目信息</td></tr>
+<tr><td><code>lib/data/experience.ts</code></td><td>工作经历</td><td>更新工作经历、添加新工作</td></tr>
+<tr><td><code>lib/data/site-config.ts</code></td><td>个人信息</td><td>改邮箱、微信、姓名、简介</td></tr>
+<tr><td><code>lib/data/growth-log.ts</code></td><td>AI成长日志</td><td>添加新的学习记录</td></tr>
+<tr><td><code>lib/data/timeline.ts</code></td><td>About页面时间线</td><td>修改成长路径</td></tr>
+<tr><td><code>lib/data/abilities.ts</code></td><td>核心能力</td><td>修改能力卡片</td></tr>
+<tr><td><code>lib/data/workflow.ts</code></td><td>AI工作流</td><td>修改工作流步骤和工具</td></tr>
+<tr><td><code>lib/i18n/translations.ts</code></td><td>界面文字</td><td>修改按钮、标题等界面文字</td></tr>
+<tr><td><code>public/images/</code></td><td>图片目录</td><td>替换或添加图片</td></tr>
+<tr><td><code>public/videos/</code></td><td>视频目录</td><td>替换或添加视频</td></tr>
+<tr><td><code>public/audio/bgm.mp3</code></td><td>背景音乐</td><td>替换背景音乐</td></tr>
+<tr><td><code>public/resume/</code></td><td>简历PDF</td><td>替换简历文件</td></tr>
+</table>
+</div>
+
+<h3>3.5 技术栈信息（给AI Agent看）</h3>
+
+<ul>
+<li><strong>框架</strong>: Next.js 16 (静态导出模式 output: 'export')</li>
+<li><strong>UI</strong>: React 19 + Tailwind CSS v4</li>
+<li><strong>动画</strong>: Framer Motion</li>
+<li><strong>国际化</strong>: 自建 Context 双语系统 (zh/en)</li>
+<li><strong>图片</strong>: next/image (unoptimized 模式)</li>
+<li><strong>构建</strong>: <code>npm run build</code> → 生成 <code>out/</code> 静态文件夹</li>
+<li><strong>后处理</strong>: <code>scripts/post-build.js</code> 自动转换路径支持U盘部署</li>
+<li><strong>部署</strong>: 静态文件，可放U盘通过 file:// 协议直接打开</li>
+</ul>
+
+<div class="callout success">
+  <div class="callout-title">注意事项</div>
+  <p>1. 修改数据文件时，注意 <strong>逗号</strong> 和 <strong>大括号</strong> 的配对，少一个逗号会导致构建失败。</p>
+  <p>2. 图片路径以 <code>/images/</code> 开头，视频以 <code>/videos/</code> 开头，不要写完整文件路径。</p>
+  <p>3. 所有文字都使用 <code>{ zh: "中文", en: "English" }</code> 格式，两种语言都要填。</p>
+  <p>4. <code>npm run build</code> 会自动运行 post-build 脚本，生成的 out 文件夹已处理路径，可直接放U盘。</p>
+</div>
+
+<!-- ==================== Part 4: FAQ ==================== -->
+<h2><span class="num">四</span>常见问题</h2>
+
+<h3>Q: 双击「打开预览.bat」后提示"端口被占用"</h3>
+<p>说明已经有一个预览服务器在运行。直接在浏览器打开 <code>http://localhost:3000</code> 即可。</p>
+
+<h3>Q: 双击「启动网站.bat」后网站打开是空白的</h3>
+<p>尝试用 Chrome 或 Edge 浏览器打开。也可以直接双击 out 文件夹里的 <code>index.html</code>。</p>
+
+<h3>Q: 构建失败怎么办</h3>
+<p>通常是数据文件格式错误。检查最近修改的文件里：<strong>逗号是否成对、大括号是否闭合、引号是否配对</strong>。如果无法解决，把错误信息发给AI Agent让它修复。</p>
+
+<h3>Q: 如何更换背景音乐</h3>
+<p>把新的MP3文件重命名为 <code>bgm.mp3</code>，放到 <code>public/audio/</code> 目录覆盖原文件，重新构建即可。</p>
+
+<h3>Q: 如何更换简历PDF</h3>
+<p>把新的PDF文件重命名为 <code>cheng-zhang-resume.pdf</code>，放到 <code>public/resume/</code> 目录覆盖原文件，重新构建即可。</p>
+
+<h3>Q: out 文件夹太大怎么办</h3>
+<p>442MB 主要是4个视频文件。如果U盘空间不够，可以删除 out/videos/ 里不需要的视频文件，同时把 projects.ts 中对应项目的 <code>videoFile</code> 字段删除。</p>
+
+<h3>Q: 以后换电脑了怎么继续开发</h3>
+<ol>
+<li>在新电脑安装 Node.js（nodejs.org，免费）</li>
+<li>把「简历网址」文件夹从U盘复制到新电脑</li>
+<li>在文件夹里打开命令行，运行 <code>npm install</code> 安装依赖</li>
+<li>双击「打开预览.bat」开始预览</li>
+<li>修改内容后双击「构建网站.bat」重新构建</li>
+</ol>
+
+<div class="divider"></div>
+
+<p style="text-align:center;color:var(--muted-dark);font-size:13px;">
+  章程 CHENG ZHANG — AI视觉创作者作品集网站<br>
+  使用与维护指南 · 2026年8月
+</p>
+
+</div>
+</body>
+</html>

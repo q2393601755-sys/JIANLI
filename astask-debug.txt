@@ -1,0 +1,14 @@
+﻿0 : System.Threading.Tasks.Task AsTask(Windows.Foundation.IAsyncAction)
+1 : System.Threading.Tasks.Task AsTask(Windows.Foundation.IAsyncAction, System.Threading.CancellationToken)
+2 :  AsTask()
+3 :  AsTask(, System.Threading.CancellationToken)
+4 : System.Threading.Tasks.Task AsTask()
+5 : System.Threading.Tasks.Task AsTask(, System.Threading.CancellationToken)
+6 : System.Threading.Tasks.Task AsTask(, )
+7 : System.Threading.Tasks.Task AsTask(, System.Threading.CancellationToken, )
+8 :  AsTask()
+9 :  AsTask(, System.Threading.CancellationToken)
+10 :  AsTask(, )
+11 :  AsTask(, System.Threading.CancellationToken, )
+srcOp type: System.__ComObject
+task: null

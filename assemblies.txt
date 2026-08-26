@@ -1,0 +1,8 @@
+﻿mscorlib.dll : YES (5493792 bytes)
+System.dll : YES (3568048 bytes)
+System.Core.dll : YES (1551256 bytes)
+System.Runtime.dll : YES (38472 bytes)
+System.Threading.Tasks.dll : YES (31304 bytes)
+System.IO.dll : YES (30256 bytes)
+Facades\System.Runtime.dll : NO
+

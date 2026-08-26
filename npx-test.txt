@@ -1,0 +1,7 @@
+﻿node.exe : npm error could not determine executable to run
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (npm error could...ecutable to run:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

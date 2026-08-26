@@ -1,0 +1,6 @@
+﻿C:\Windows\System32\WinMetadata\Windows.AI.winmd
+C:\Windows\System32\WinMetadata\Windows.ApplicationModel.winmd
+C:\Windows\System32\WinMetadata\Windows.Data.winmd
+C:\Windows\System32\WinMetadata\Windows.Devices.winmd
+C:\Windows\System32\WinMetadata\Windows.Foundation.winmd
+

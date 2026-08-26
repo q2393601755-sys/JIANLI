@@ -1,0 +1,6 @@
+﻿Windows.Foundation.winmd : True
+Windows.Storage.winmd : True
+Windows.Media.winmd : True
+Windows.Media.MediaProperties.winmd : False
+Windows.Media.Transcoding.winmd : False
+

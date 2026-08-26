@@ -1,0 +1,5 @@
+﻿Step 1: Start
+Step 1: Assembly loaded
+Step 2: WinRT types loaded
+Step 3: Helper methods found: generic=False, action=False
+Step 3: Transcoder and profile created

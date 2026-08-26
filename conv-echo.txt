@@ -1,0 +1,7 @@
+﻿Types loaded
+Transcoder created
+Getting source file...
+Source: 
+Dest: 
+Preparing transcode...
+CanTranscode: 

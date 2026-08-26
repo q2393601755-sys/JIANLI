@@ -1,0 +1,5 @@
+﻿Compiling...
+Args: /nologo /target:exe /out:h:\zc\简历网址\converter.exe /reference:C:\Windows\Microsoft.NET\Framework64\v4.0.30319\System.Runtime.WindowsRuntime.dll /reference:C:\Windows\System32\WinMetadata\Windows.Foundation.winmd /reference:C:\Windows\System32\WinMetadata\Windows.Storage.winmd /reference:C:\Windows\System32\WinMetadata\Windows.Media.winmd /reference:C:\Windows\System32\WinMetadata\Windows.Media.MediaProperties.winmd /reference:C:\Windows\System32\WinMetadata\Windows.Media.Transcoding.winmd h:\zc\简历网址\converter.cs
+error CS0006: ??????????C:\Windows\System32\WinMetadata\Windows.Media.MediaProperties.winmd?
+error CS0006: ??????????C:\Windows\System32\WinMetadata\Windows.Media.Transcoding.winmd?
+EXE not created

@@ -1,0 +1,12 @@
+﻿Error1: 
+
+  NoSuchKey
+  The specified key does not exist.
+  6A7FD7823E95CC3435F961F6
+  npmmirror.oss-cn-shanghai.aliyuncs.com
+  binaries/ffmpeg/ffmpeg-6.1-win64.zip
+  0026-00000001
+  https://api.aliyun.com/troubleshoot?q=0026-00000001
+
+
+Mirror page available, length: 8689

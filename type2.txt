@@ -1,0 +1,16 @@
+﻿Type found: True
+FullName: System.WindowsRuntimeSystemExtensions
+Method count: 18
+AsTask count: 12
+Task AsTask(Windows.Foundation.IAsyncAction)
+Task AsTask(Windows.Foundation.IAsyncAction, System.Threading.CancellationToken)
+Task`1 AsTask()
+Task`1 AsTask(, System.Threading.CancellationToken)
+Task AsTask()
+Task AsTask(, System.Threading.CancellationToken)
+Task AsTask(, )
+Task AsTask(, System.Threading.CancellationToken, )
+Task`1 AsTask()
+Task`1 AsTask(, System.Threading.CancellationToken)
+Task`1 AsTask(, )
+Task`1 AsTask(, System.Threading.CancellationToken, )
