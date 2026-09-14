@@ -380,7 +380,38 @@ export const projects: Project[] = [
     ],
   },
 
-  // ===== 项目4: AI短片《未完成的人生》 =====
+  // ===== 项目4: MG动画短片 =====
+  {
+    id: "mg",
+    slug: "mg",
+    title: { zh: "MG动画短片", en: "MG Animation Short" },
+    subtitle: { zh: "3D角色与数据可视化动画", en: "3D Character & Data Visualization Animation" },
+    summary: {
+      zh: "以3D动画角色与数据图表特效制作的MG动画短片。",
+      en: "An MG animation short featuring 3D characters and data visualization effects.",
+    },
+    description: {
+      zh: "一部MG风格的动画短片。以卡通创作者形象为主角，结合悬浮数据图表、数字工具图标等视觉特效，在3D场景中展开叙事，展现动态图形设计与动画叙事能力。",
+      en: "An MG-style animated short. Centered on a cartoon creator character combined with floating data charts and digital tool icons, the film unfolds in 3D scenes, demonstrating motion graphics design and animated storytelling.",
+    },
+    year: 2026,
+    category: { zh: "动画创作", en: "Animation" },
+    tags: ["MG动画", "3D动画", "数据可视化"],
+    tools: ["剪映"],
+    cover: {
+      type: "image",
+      url: "/images/projects/mg-cover.png",
+      alt: {
+        zh: "MG动画短片封面",
+        en: "Cover of MG Animation Short",
+      },
+    },
+    videoFile: "/videos/mg.mp4",
+    featured: true,
+    createdAt: "2026-09-10",
+  },
+
+  // ===== 项目5: AI短片《未完成的人生》 =====
   {
     id: "unfinished-life",
     slug: "unfinished-life",
@@ -414,7 +445,7 @@ export const projects: Project[] = [
     createdAt: "2026-08-18",
   },
 
-  // ===== 项目5: 西湖徒步Vlog =====
+  // ===== 项目6: 西湖徒步Vlog =====
   {
     id: "xihu-vlog",
     slug: "xihu-vlog",
@@ -486,7 +517,69 @@ export const projects: Project[] = [
     ],
   },
 
-  // ===== 项目6: AI内容策略案例 =====
+  // ===== 项目7: 昌荣苑探盘Vlog =====
+  {
+    id: "cepin",
+    slug: "cepin",
+    title: { zh: "昌荣苑探盘Vlog", en: "Changrongyuan Property Tour Vlog" },
+    subtitle: { zh: "竖屏房产探盘短视频", en: "Vertical Property Tour Video" },
+    summary: {
+      zh: "昌荣苑楼盘竖屏探盘视频，真人出镜讲解结合航拍合成特效。",
+      en: "A vertical property tour video of Changrongyuan, combining on-camera presentation with aerial compositing effects.",
+    },
+    description: {
+      zh: "以昌荣苑楼盘为主题的竖屏探盘短视频。采用真人出镜讲解与无人机航拍合成特效，从区位交通、周边配套到项目现状逐一呈现，是竖屏房产内容的完整实践。",
+      en: "A vertical property tour short video themed on the Changrongyuan project. Combining on-camera presentation with drone aerial compositing effects, it presents location, transit access, surrounding amenities, and project status — a complete practice in vertical real-estate content.",
+    },
+    year: 2026,
+    category: { zh: "商业视频", en: "Commercial Video" },
+    tags: ["房产视频", "探盘", "竖屏短视频", "航拍合成"],
+    tools: ["剪映"],
+    cover: {
+      type: "image",
+      url: "/images/projects/cepin-cover.png",
+      alt: {
+        zh: "昌荣苑探盘Vlog封面",
+        en: "Cover of Changrongyuan Property Tour Vlog",
+      },
+    },
+    videoFile: "/videos/cepin.mp4",
+    featured: true,
+    createdAt: "2026-09-12",
+  },
+
+  // ===== 项目8: 职场情景短剧 =====
+  {
+    id: "xiaojuchang",
+    slug: "xiaojuchang",
+    title: { zh: "职场情景短剧", en: "Workplace Skit" },
+    subtitle: { zh: "办公室情景短剧", en: "Office Situation Skit" },
+    summary: {
+      zh: "以办公室日常为背景的职场情景短剧。",
+      en: "A workplace situation skit set against everyday office life.",
+    },
+    description: {
+      zh: "一部以办公室日常为背景的职场情景短剧。围绕同事间的互动展开轻喜剧叙事，通过场景调度、表演节奏与字幕包装完成短视频化的情景剧表达。",
+      en: "A workplace situation skit set in everyday office life. Built around interactions between colleagues, it delivers light comedic storytelling through scene staging, performance pacing, and subtitle packaging for the short-video format.",
+    },
+    year: 2026,
+    category: { zh: "情景短剧", en: "Skit" },
+    tags: ["情景短剧", "职场", "短视频"],
+    tools: ["剪映"],
+    cover: {
+      type: "image",
+      url: "/images/projects/xiaojuchang-cover.png",
+      alt: {
+        zh: "职场情景短剧封面",
+        en: "Cover of Workplace Skit",
+      },
+    },
+    videoFile: "/videos/xiaojuchang.mp4",
+    featured: true,
+    createdAt: "2026-09-13",
+  },
+
+  // ===== 项目9: AI内容策略案例 =====
   {
     id: "ai-strategy",
     slug: "ai-strategy",

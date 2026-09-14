@@ -7,7 +7,7 @@ import { getFeaturedProjects } from "@/lib/data/projects";
 export const metadata: Metadata = {
   title: "精选作品 Projects",
   description:
-    "章程的AI视觉创作作品集 — AI短片《回音Echo》、AI短片《未完成的人生》、商业房地产宣传片、建筑空间视觉。",
+    "章程的AI视觉创作作品集 — AI短片《回音Echo》、MG动画短片、AI短片《未完成的人生》、商业房地产宣传片、昌荣苑探盘Vlog、职场情景短剧、建筑空间视觉。",
 };
 
 export default function ProjectsPage() {
